@@ -64,17 +64,11 @@
         const message = document.getElementById('message').value;
 
         
-        tg.sendData({name, message});
-        tg.initDataUnsafe.user.username;
-        
-        console.log('Имя:', name);
-        console.log('Сообщение:', message);
-
-        
         fetch('http://localhost:5000/send_message', {  // Убедитесь, что URL соответствует вашему бэкенду
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Cross-Origin-Opener-Policy': '*'
             },
             body: JSON.stringify({ name, message })
         })
@@ -86,6 +80,12 @@
             console.error('Ошибка:', error);
             document.getElementById('result').innerText = 'Ошибка при отправке сообщения.';
         });
+
+        tg.sendData({name, message});
+        tg.initDataUnsafe.user.username;
+        
+        console.log('Имя:', name);
+        console.log('Сообщение:', message);
     });
 
     Telegram.WebApp.onEvent('close', function() {
