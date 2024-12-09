@@ -55,13 +55,15 @@
 </div>
 
 <script>
+    let tg = window.Telegram.WebApp;
+
     document.getElementById('form').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const name = document.getElementById('name').value;
         const message = document.getElementById('message').value;
 
-        let tg = window.Telegram.WebApp;
+        
         tg.sendData({name, message});
         tg.initDataUnsafe.user.username;
         
@@ -85,6 +87,13 @@
             document.getElementById('result').innerText = 'Ошибка при отправке сообщения.';
         });
     });
+
+    Telegram.WebApp.onEvent('close', function() {
+        tg.sendData({data: 'close'});
+        console.log('Web App закрылся');
+
+    });
+
 </script>
 
 </body>
