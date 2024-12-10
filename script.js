@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questionDiv = document.getElementById("questions");
     questionDiv.innerHTML = "Loading questions...";
 
-    fetch("/get-questions")
+    fetch("https://sam5213.github.io/get-questions")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
