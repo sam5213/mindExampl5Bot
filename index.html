@@ -1,100 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Bot Web App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-        }
-        button {
-            display: block;
-            margin: 0 auto;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1>Telegram Bot Web App</h1>
-    <form id="form">
-        <input type="text" id="name" placeholder="Введите ваше имя" required>
-        <input type="text" id="message" placeholder="Введите ваше сообщение" required>
-        <button type="submit">Отправить в бот</button>
-    </form>
-    <div id="result" style="margin-top: 20px;"></div>
-</div>
-
-<script>
-    let tg = window.Telegram.WebApp;
-
-    document.getElementById('form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
-
-        
-        fetch('http://localhost:5000/send_message', {  // Убедитесь, что URL соответствует вашему бэкенду
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Cross-Origin-Opener-Policy': '*'
-            },
-            body: JSON.stringify({ name, message })
-        })
-        .then(response => response.json())
-        .then(result => {
-            document.getElementById('result').innerText = 'Сообщение отправлено в бот!';
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-            document.getElementById('result').innerText = 'Ошибка при отправке сообщения.';
-        });
-
-        tg.sendData({name, message});
-        tg.initDataUnsafe.user.username;
-        
-        console.log('Имя:', name);
-        console.log('Сообщение:', message);
-    });
-
-    Telegram.WebApp.onEvent('close', function() {
-        tg.sendData({data: 'close'});
-        console.log('Web App закрылся');
-
-    });
-
-</script>
-
-</body>
-</html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="styles.css">
+       <title>Quiz App</title>
+   </head>
+   <body>
+       <h1>Welcome to the Quiz</h1>
+       <div id="questions"></div>
+       <script src="script.js"></script>
+   </body>
+   </html>
