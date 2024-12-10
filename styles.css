@@ -1,14 +1,119 @@
 body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #FFF0F5, #E0F2F1);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-h1 {
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    position: relative;
+}
+
+.peeping-kitten {
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 150px;
+    height: 150px;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: #FF69B4;
     text-align: center;
 }
-#questions {
-    margin: 20px auto;
-    width: 90%;
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.slider-icon {
+    width: 30px;
+    height: 30px;
+}
+
+#slider {
+    flex-grow: 1;
+    margin: 0 16px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #FF1493;
+    transform: scale(1.05);
+}
+
+.btn:disabled {
+    background-color: #FFB6C1;
+    cursor: not-allowed;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.option input[type="radio"] {
+    margin-right: 8px;
+}
+
+.result-kitten {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px;
+    display: block;
+}
+
+footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #666;
+    font-size: 14px;
 }
