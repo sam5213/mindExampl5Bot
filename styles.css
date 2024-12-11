@@ -46,6 +46,13 @@ h2 {
     margin-bottom: 16px;
 }
 
+.question-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
 .slider-container {
     display: flex;
     align-items: center;
@@ -117,3 +124,4 @@ footer {
     color: #666;
     font-size: 14px;
 }
+
