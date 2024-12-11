@@ -44,8 +44,7 @@ const restartBtn = document.getElementById('restart-btn');
 
 function displayQuestion() {
     const q = questions[currentQuestion];
-    questionEl.textContent = q.question;
-    questionEl.insertAdjacentHTML('afterbegin', `<img src="kitten-icon-${currentQuestion + 1}.svg" alt="Kitten icon" class="question-icon">`);
+    questionEl.innerHTML = `<img src="kitten-icon-${currentQuestion + 1}.svg" alt="Kitten icon" class="question-icon">${q.question}`;
     
     optionsEl.innerHTML = q.options.map((option, index) => `
         <label class="option">
@@ -114,3 +113,4 @@ restartBtn.addEventListener('click', () => {
 });
 
 displayQuestion();
+
